@@ -84,8 +84,8 @@ export function Booking() {
                 }}
               >
                 {lang === "ko"
-                  ? "지금 바로 카카오톡으로 문의하기"
-                  : "Contact via KakaoTalk now"}
+                  ? "카카오톡으로 첫 대화 시작하기"
+                  : "Start a conversation on KakaoTalk"}
               </a>
 
               <a

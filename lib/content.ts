@@ -16,8 +16,8 @@ export const content = {
       en: "Let's breathe again, together",
     },
     cta: {
-      ko: "지금 바로 카카오톡으로 문의하기",
-      en: "Chat on KakaoTalk",
+      ko: "카카오톡으로 첫 대화 시작하기",
+      en: "Start a conversation on KakaoTalk",
     },
     ctaSecondary: {
       ko: "예약폼 작성하기",
@@ -31,8 +31,8 @@ export const content = {
       en: "Does any of this feel familiar?",
     },
     intro: {
-      ko: "독일, 프랑스, 영국, 스위스… 어디에 살든 낯선 나라에서 느끼는 감정은 비슷합니다. 영어로 설명하기 힘들었던 그 마음, 한국어로 이야기해요.",
-      en: "Whether you're in Germany, France, the UK, or Switzerland — the feelings of living abroad are often the same. What you couldn't express in another language, let's talk about in Korean.",
+      ko: "외국에서 혼자 버티고 있는 당신의 마음, 여기서는 편하게 꺼내도 됩니다.",
+      en: "If any of this feels familiar, you are not alone.",
     },
     cards: [
       {
