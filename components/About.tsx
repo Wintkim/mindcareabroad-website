@@ -52,10 +52,10 @@ export function About() {
               style={{ backgroundColor: 'var(--surface2)' }}
             >
               <Image
-                src="/counselor.jpg"
+                src="/profile.png.png"
                 alt={lang === 'ko' ? '김겨울 상담사' : 'Kim Kyeoul, counselor'}
                 fill
-                className="object-cover grayscale"
+                className="object-cover"
                 sizes="(max-width: 768px) 80vw, 40vw"
                 priority
               />

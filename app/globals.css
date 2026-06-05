@@ -6,7 +6,7 @@
   --surface: #e6d4bc;
   --surface2: #ddc9a8;
   --cta: #2d4a45;
-  --cta-dim: rgba(45, 74, 69, 0.10);
+  --cta-dim: rgba(45, 74, 69, 0.05);
   --text: #1a1a1a;
   --text-sec: rgba(26, 26, 26, 0.6);
   --text-muted: rgba(26, 26, 26, 0.35);
@@ -50,6 +50,7 @@ body {
   color: var(--text);
   word-break: keep-all;
   overflow-wrap: break-word;
+  overflow-x: hidden;
 }
 
 /* ── Scroll fade-in ───────────────────────────────────────── */
