@@ -109,11 +109,12 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "GNYVQ8qjK7MM1FtNk6SDdhRSYbqNMYD9_UnJZhsPx0c",
+    other: {
+      "naver-site-verification":
+        "79c4c77c8c6b46987827ad9e70f7a78d6e8d6fe2",
+    },
   },
   category: "mental health support",
-  other: {
-    "naver-site-verification": "",
-  },
 };
 
 export default function RootLayout({
