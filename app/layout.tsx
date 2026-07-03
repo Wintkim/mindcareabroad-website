@@ -107,6 +107,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  verification: {
+    google: "GNYVQ8qjK7MM1FtNk6SDdhRSYbqNMYD9_UnJZhsPx0c",
+  },
   category: "mental health support",
   other: {
     "naver-site-verification": "",
