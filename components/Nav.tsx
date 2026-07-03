@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
-import { content } from "@/lib/content";
+import { contactLinks, content } from "@/lib/content";
 
 export function Nav() {
   const { lang, toggle } = useLang();
@@ -47,7 +47,7 @@ export function Nav() {
             {t.lang[lang]}
           </button>
           <a
-            href="https://forms.gle/9bVLEtrsjJjk52U36"
+            href={contactLinks.bookingForm}
             target="_blank"
             rel="noreferrer noopener"
             className="px-5 py-2 rounded-full text-sm font-medium transition-opacity hover:opacity-85"

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLang } from "@/lib/LanguageContext";
 import { content } from "@/lib/content";
 import { AuroraBackground } from "@/components/ui/aurora-background";
@@ -158,20 +157,15 @@ export function Hero() {
         />
       </svg>
 
-      <motion.div
+      <div
         className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 w-full"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
       >
         <div className="max-w-xl">
           <p
             className="text-xs tracking-[0.2em] uppercase mb-8 opacity-60"
             style={{ fontFamily: "var(--font-dm-mono)", color: "var(--cta)" }}
           >
-            {lang === "ko"
-              ? "유럽 한인을 위한 온라인 상담"
-              : "Online counseling for Koreans in Europe"}
+            {t.eyebrow[lang]}
           </p>
 
           <h1
@@ -201,7 +195,7 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="https://open.kakao.com/o/sqXbS7xi"
+              href="https://forms.gle/9bVLEtrsjJjk52U36"
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-85"
@@ -214,7 +208,7 @@ export function Hero() {
               {t.cta[lang]}
             </a>
             <a
-              href="https://forms.gle/9bVLEtrsjJjk52U36"
+              href="https://open.kakao.com/o/sqXbS7xi"
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-80"
@@ -229,7 +223,7 @@ export function Hero() {
             </a>
           </div>
         </div>
-      </motion.div>
+      </div>
     </AuroraBackground>
   );
 }

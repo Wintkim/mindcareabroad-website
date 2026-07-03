@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/lib/LanguageContext";
-import { content } from "@/lib/content";
+import { contactLinks, content } from "@/lib/content";
 
 export function Footer() {
   const { lang, toggle } = useLang();
@@ -36,9 +36,9 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <a
-              href="https://instagram.com/mindcare.abroad"
+              href={contactLinks.instagram}
               target="_blank"
               rel="noreferrer noopener"
               className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
@@ -62,9 +62,8 @@ export function Footer() {
               </svg>
               {t.instagram}
             </a>
-            <span style={{ color: "var(--line)" }}>|</span>
             <a
-              href="mailto:mindcare.abroad@gmail.com"
+              href={`mailto:${contactLinks.email}`}
               className="flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
               style={{
                 color: "var(--text-sec)",
@@ -83,9 +82,8 @@ export function Footer() {
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
               </svg>
-              mindcare.abroad@gmail.com
+              {contactLinks.email}
             </a>
-            <span style={{ color: "var(--line)" }}>|</span>
             <p
               className="text-sm"
               style={{
@@ -95,7 +93,6 @@ export function Footer() {
             >
               {t.location}
             </p>
-            <span style={{ color: "var(--line)" }}>|</span>
             <button
               onClick={toggle}
               className="text-sm tracking-widest transition-opacity hover:opacity-70"
@@ -111,7 +108,7 @@ export function Footer() {
 
         <div className="pt-6 border-t" style={{ borderColor: "var(--line)" }}>
           <p
-            className="text-xs leading-relaxed max-w-2xl"
+            className="text-xs leading-relaxed max-w-3xl"
             style={{
               color: "var(--text-muted)",
               fontFamily: "var(--font-noto-sans)",
@@ -121,12 +118,7 @@ export function Footer() {
           </p>
         </div>
 
-        {/* German SEO hidden text */}
-        <p className="sr-only">
-          Koreanische psychologische Beratung für Koreaner in Deutschland und
-          ganz Europa. Online-Sitzungen auf Koreanisch, auch in Hamburg
-          persönlich verfügbar.
-        </p>
+        <p className="sr-only">{t.hiddenSeo}</p>
       </div>
     </footer>
   );

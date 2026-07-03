@@ -68,7 +68,7 @@ export function Testimonials() {
                     borderTop: "1px solid var(--line)",
                   }}
                 >
-                  — {card.source}
+                  - {card.source}
                 </p>
               </div>
             </FadeUp>

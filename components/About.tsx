@@ -36,6 +36,15 @@ export function About() {
               {t.location}
             </p>
             <p
+              className="text-sm font-medium mb-5"
+              style={{
+                color: 'var(--cta)',
+                fontFamily: 'var(--font-noto-sans)',
+              }}
+            >
+              {t.credentials[lang]}
+            </p>
+            <p
               className="text-base md:text-lg leading-relaxed"
               style={{
                 color: 'var(--text-sec)',
@@ -53,7 +62,7 @@ export function About() {
             >
               <Image
                 src="/profile.png.png"
-                alt={lang === 'ko' ? '김겨울 상담사' : 'Kim Kyeoul, counselor'}
+                alt={lang === 'ko' ? '김겨울 상담자' : 'Kim Kyeoul, counselor'}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 80vw, 40vw"
