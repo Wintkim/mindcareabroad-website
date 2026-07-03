@@ -7,7 +7,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Booking } from "@/components/Booking";
 import { Footer } from "@/components/Footer";
 
-const siteUrl = "https://mindcareabroad-website.vercel.app";
+const siteUrl = "https://www.mindcareabroad.com";
 
 const jsonLd = {
   "@context": "https://schema.org",

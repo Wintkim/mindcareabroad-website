@@ -3,7 +3,7 @@ import { Noto_Serif_KR, Noto_Sans_KR, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/LanguageContext";
 
-const siteUrl = "https://mindcareabroad-website.vercel.app";
+const siteUrl = "https://www.mindcareabroad.com";
 const siteName = "Mindcare Abroad";
 const description =
   "독일·유럽·해외에 사는 한국인을 위한 한국어 온라인 마음상담. 외로움, 관계 갈등, 이민 스트레스, 정체성 혼란, 국제커플 소통을 다룹니다. 무료 15분 첫 상담 가능.";
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US", "de_DE"],
     images: [
       {
-        url: "/profile.png.png",
+        url: `${siteUrl}/profile.png.png`,
         width: 1200,
         height: 1200,
         alt: "Mindcare Abroad 상담자 김겨울",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "독일·유럽 한국인 상담 | Mindcare Abroad",
     description,
-    images: ["/profile.png.png"],
+    images: [`${siteUrl}/profile.png.png`],
   },
   robots: {
     index: true,
