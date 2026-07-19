@@ -1,44 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
-import { contactLinks, content } from "@/lib/content";
+import { content } from "@/lib/content";
+import Link from "next/link";
 
 export function Nav() {
   const { lang, toggle } = useLang();
   const t = content.nav;
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b" : ""
-      }`}
+      className="absolute top-0 left-0 right-0 z-50"
       style={{
-        backgroundColor: scrolled ? "rgba(238,225,208,0.95)" : "transparent",
-        borderColor: "var(--line)",
-        backdropFilter: scrolled ? "blur(8px)" : "none",
+        backgroundColor: "transparent",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 h-20 flex items-center justify-between">
         <a
           href="#"
-          className="text-base tracking-widest font-medium"
+          className="text-lg sm:text-xl tracking-[0.12em] font-medium whitespace-nowrap"
           style={{ color: "var(--cta)", fontFamily: "var(--font-dm-mono)" }}
         >
           {t.logo}
         </a>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button
             onClick={toggle}
-            className="text-sm tracking-widest transition-opacity hover:opacity-70"
+            className="min-h-11 px-2 text-base font-medium tracking-widest transition-opacity hover:opacity-70"
             style={{
               color: "var(--text-sec)",
               fontFamily: "var(--font-dm-mono)",
@@ -46,19 +34,17 @@ export function Nav() {
           >
             {t.lang[lang]}
           </button>
-          <a
-            href={contactLinks.bookingForm}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="px-5 py-2 rounded-full text-sm font-medium transition-opacity hover:opacity-85"
+          <Link
+            href="/booking"
+            className="inline-flex min-h-11 items-center px-5 sm:px-6 py-2.5 rounded-full text-base font-semibold whitespace-nowrap transition-opacity hover:opacity-85"
             style={{
               backgroundColor: "var(--cta)",
               color: "#fff",
               fontFamily: "var(--font-noto-sans)",
             }}
           >
-            {t.cta[lang]}
-          </a>
+            {lang === "ko" ? "상담 예약" : "Book"}
+          </Link>
         </div>
       </div>
     </nav>

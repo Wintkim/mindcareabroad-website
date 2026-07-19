@@ -3,6 +3,8 @@
 import { useLang } from "@/lib/LanguageContext";
 import { content } from "@/lib/content";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import Link from "next/link";
+import { bookingLinks } from "@/lib/booking";
 
 export function Hero() {
   const { lang } = useLang();
@@ -12,7 +14,7 @@ export function Hero() {
 
   return (
     <AuroraBackground
-      className="min-h-screen items-start justify-start pt-16"
+      className="min-h-[680px] md:min-h-[720px] items-start justify-start pt-20"
       style={{ backgroundColor: "var(--bg)" }}
     >
       {/* Blob background */}
@@ -30,7 +32,7 @@ export function Hero() {
 
       {/* Illustrated room scene */}
       <svg
-        className="hidden md:block absolute right-8 bottom-0 w-[440px] opacity-80 pointer-events-none"
+        className="hidden lg:block absolute right-8 bottom-10 xl:bottom-14 w-[430px] xl:w-[460px] opacity-85 pointer-events-none"
         viewBox="0 0 440 360"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -158,11 +160,11 @@ export function Hero() {
       </svg>
 
       <div
-        className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 w-full"
+        className="relative max-w-6xl mx-auto px-6 py-20 md:py-24 w-full"
       >
         <div className="max-w-xl">
           <p
-            className="text-xs tracking-[0.2em] uppercase mb-8 opacity-60"
+            className="text-sm md:text-base tracking-[0.14em] uppercase mb-8 opacity-80"
             style={{ fontFamily: "var(--font-dm-mono)", color: "var(--cta)" }}
           >
             {t.eyebrow[lang]}
@@ -193,12 +195,12 @@ export function Hero() {
             {t.sub[lang]}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="grid sm:grid-cols-2 gap-3">
             <a
-              href="https://forms.gle/9bVLEtrsjJjk52U36"
+              href={bookingLinks.FREE_CONSULTATION_BOOKING_URL}
               target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-85"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-85"
               style={{
                 backgroundColor: "var(--cta)",
                 color: "#fff",
@@ -207,11 +209,9 @@ export function Hero() {
             >
               {t.cta[lang]}
             </a>
-            <a
-              href="https://open.kakao.com/o/sqXbS7xi"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-80"
+            <Link
+              href="/booking"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-80"
               style={{
                 backgroundColor: "transparent",
                 color: "var(--cta)",
@@ -219,9 +219,20 @@ export function Hero() {
                 fontFamily: "var(--font-noto-sans)",
               }}
             >
-              {t.ctaSecondary[lang]}
-            </a>
+              {lang === "ko" ? "유료상담 바로 예약하기" : "Book a paid session"}
+            </Link>
           </div>
+          <p className="mt-4 text-sm" style={{ color: "var(--text-sec)" }}>{lang === "ko" ? "무료상담은 원하는 시간을 선택하면 별도 결제 없이 예약이 확정됩니다." : "Choose a time for the free consultation and it is confirmed without payment."}</p>
+          <a
+            href={bookingLinks.kakao}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="inline-flex items-center gap-2 mt-5 min-h-11 px-5 py-2.5 rounded-full text-sm font-medium border transition-colors hover:bg-white/30"
+            style={{ color: "var(--cta)", borderColor: "var(--cta)" }}
+          >
+            <span aria-hidden="true">💬</span>
+            {lang === "ko" ? "예약 전 궁금한 점, 카카오톡으로 문의하기" : "Questions before booking? Ask on KakaoTalk"}
+          </a>
         </div>
       </div>
     </AuroraBackground>

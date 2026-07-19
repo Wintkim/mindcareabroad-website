@@ -29,7 +29,7 @@ const jsonLd = {
       email: "mindcare.abroad@gmail.com",
       sameAs: ["https://instagram.com/mindcare.abroad"],
       knowsLanguage: ["ko", "en", "de"],
-      priceRange: "0€-280€",
+      priceRange: "0€-360€",
       offers: [
         {
           "@type": "Offer",
@@ -37,7 +37,7 @@ const jsonLd = {
           price: "0",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          url: "https://forms.gle/9bVLEtrsjJjk52U36",
+          url: "https://app.cal.eu/mindcareabroad/free-15",
         },
         {
           "@type": "Offer",
@@ -47,8 +47,8 @@ const jsonLd = {
         },
         {
           "@type": "Offer",
-          name: "커플 상담 50분",
-          price: "80",
+          name: "커플 상담 70분",
+          price: "100",
           priceCurrency: "EUR",
         },
       ],

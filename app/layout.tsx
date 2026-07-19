@@ -1,33 +1,33 @@
 import type { Metadata } from "next";
-import { Noto_Serif_KR, Noto_Sans_KR, DM_Mono } from "next/font/google";
+import { DM_Mono, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/LanguageContext";
+
+const notoSerif = Noto_Serif_KR({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-noto-serif",
+  display: "swap",
+});
+
+const notoSans = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-noto-sans",
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
+});
 
 const siteUrl = "https://www.mindcareabroad.com";
 const siteName = "Mindcare Abroad";
 const description =
   "독일·유럽·해외에 사는 한국인을 위한 한국어 온라인 마음상담. 외로움, 관계 갈등, 이민 스트레스, 정체성 혼란, 국제커플 소통을 다룹니다. 무료 15분 첫 상담 가능.";
-
-const notoSerif = Noto_Serif_KR({
-  variable: "--font-noto-serif",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
-
-const notoSans = Noto_Sans_KR({
-  variable: "--font-noto-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -2,7 +2,7 @@ export type Lang = "ko" | "en";
 
 export const contactLinks = {
   kakao: "https://open.kakao.com/o/sqXbS7xi",
-  bookingForm: "https://forms.gle/9bVLEtrsjJjk52U36",
+  legacyBookingForm: "https://forms.gle/9bVLEtrsjJjk52U36",
   email: "mindcare.abroad@gmail.com",
   instagram: "https://instagram.com/mindcare.abroad",
 };
@@ -87,7 +87,7 @@ export const content = {
         },
       },
       {
-        icon: "🫶",
+        icon: "♡",
         title: { ko: "국제커플·부부 소통이 어려울 때", en: "When cross-cultural communication is hard" },
         desc: {
           ko: "문화와 언어가 달라 서로 사랑하면서도 자꾸 상처를 주고받을 때",
@@ -180,34 +180,34 @@ export const content = {
       couplesLabel: { ko: "커플/부부 상담", en: "Couples sessions" },
       personal: [
         {
-          title: { ko: "무료 15분 첫 상담", en: "Free 15-min consultation" },
+          title: { ko: "개인상담 1회", en: "Individual session" },
           desc: {
-            ko: "상황을 짧게 나누고, 어떤 방식이 맞을지 함께 확인합니다.",
-            en: "Share what is happening and see what kind of support fits.",
-          },
-          price: { ko: "0€", en: "€0" },
-          subPrice: { ko: "처음 문의하시는 분께", en: "For first-time inquiries" },
-          badge: { ko: "첫 시작", en: "Start here" },
-        },
-        {
-          title: { ko: "한 달 패키지", en: "Monthly package" },
-          desc: {
-            ko: "주 1회 x 4주 · 꾸준히 함께 나아가요",
-            en: "1x week x 4 weeks · steady support",
-          },
-          price: { ko: "160€", en: "€160" },
-          subPrice: { ko: "회당 40€", en: "€40/session" },
-          badge: { ko: "추천", en: "Recommended" },
-        },
-        {
-          title: { ko: "1회 상담", en: "Single session" },
-          desc: {
-            ko: "50분 · 부담 없이 한 번 시작해보세요",
-            en: "50 min · try one session",
+            ko: "50분 · 현재 가장 필요한 문제를 차분히 정리합니다.",
+            en: "50 min · focus on what needs attention now",
           },
           price: { ko: "50€", en: "€50" },
-          subPrice: null,
+          subPrice: { ko: "Cal.eu에서 바로 예약", en: "Book directly on Cal.eu" },
           badge: null,
+        },
+        {
+          title: { ko: "4주 개인 프로그램", en: "4-week individual program" },
+          desc: {
+            ko: "50분 × 4회 · 반복되는 고민과 패턴을 꾸준히 점검합니다.",
+            en: "50 min × 4 · steady support for recurring patterns",
+          },
+          price: { ko: "180€", en: "€180" },
+          subPrice: { ko: "기본 추천 상품", en: "Core recommendation" },
+          badge: { ko: "가장 추천", en: "Recommended" },
+        },
+        {
+          title: { ko: "4주 집중 개인 프로그램", en: "4-week intensive program" },
+          desc: {
+            ko: "50분 × 8회 · 주 2회, 더 촘촘한 점검이 필요한 시기에",
+            en: "50 min × 8 · twice-weekly focused support",
+          },
+          price: { ko: "360€", en: "€360" },
+          subPrice: { ko: "상담 후 추천", en: "Recommended after consultation" },
+          badge: { ko: "집중 지원", en: "Focused" },
         },
       ],
       couples: [
@@ -217,7 +217,7 @@ export const content = {
             ko: "주 1회 x 4주 · 관계를 다시 연결해요",
             en: "1x week x 4 weeks · reconnect your relationship",
           },
-          price: { ko: "280€", en: "€280" },
+          price: { ko: "360€", en: "€360" },
           subPrice: { ko: "회당 70€", en: "€70/session" },
           badge: { ko: "추천", en: "Recommended" },
         },
@@ -227,7 +227,7 @@ export const content = {
             ko: "50분 · 두 사람의 마음을 함께 풀어가요",
             en: "50 min · explore both sides together",
           },
-          price: { ko: "80€", en: "€80" },
+          price: { ko: "100€", en: "€100" },
           subPrice: null,
           badge: null,
         },
@@ -296,8 +296,8 @@ export const content = {
     kakaoBtn: { ko: "카카오톡으로 문의", en: "Message on KakaoTalk" },
     responseLabel: { ko: "응답 시간", en: "Response time" },
     responseText: {
-      ko: "보통 24시간 이내에 답장드립니다.",
-      en: "Usually responds within 24 hours.",
+      ko: "보통 2시간 이내에 답장 드립니다.",
+      en: "Usually responds within 2 hours.",
     },
   },
   footer: {

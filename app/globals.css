@@ -2,6 +2,9 @@
 
 /* ── Brand tokens ─────────────────────────────────────────── */
 :root {
+  --font-noto-serif: "Noto Serif KR", "Batang", Georgia, serif;
+  --font-noto-sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+  --font-dm-mono: "DM Mono", Consolas, monospace;
   --bg: #eee1d0;
   --surface: #e6d4bc;
   --surface2: #ddc9a8;

@@ -9,7 +9,7 @@ export function ForYou() {
   const t = content.forYou;
 
   return (
-    <section id="for-you" className="py-24 md:py-32">
+    <section id="for-you" className="pt-14 pb-24 md:pt-18 md:pb-28">
       <div className="max-w-6xl mx-auto px-6">
         <FadeUp>
           <p
