@@ -1,17 +1,20 @@
 # Mindcare Abroad 예약 설정
 
-예약·신청 링크는 `lib/booking.ts`의 `bookingLinks` 한 곳에서 관리합니다. 다음 네 값을 실제 Cal.com, Google Calendar 또는 전용 폼 URL로 교체하세요.
+예약·문의 링크와 상품 정보는 `lib/booking.ts`에서, 기본 CTA와 홈페이지 문구는 `lib/content.ts`에서 관리합니다. 한국어를 기준으로 영어 문구도 함께 수정하세요.
 
-- `FREE_CONSULTATION_BOOKING_URL`: 무료 15분 전용 캘린더
-- `INDIVIDUAL_SESSION_BOOKING_URL`: 개인상담 50분 전용 캘린더
-- `INDIVIDUAL_PROGRAM_FORM_URL`: 4주 개인 프로그램 전용 짧은 폼
-- `COUPLE_INQUIRY_FORM_URL`: 커플상담 공용 문의폼
+- `selection`: `/booking` — 헤더·히어로·마지막 예약 버튼의 공통 목적지
+- `INDIVIDUAL_SESSION_BOOKING_URL`: 50분 / 50€ 1:1 온라인 상담 전용 Cal.eu 캘린더
+- `INDIVIDUAL_PROGRAM_BOOKING_URL`: 4주 개인 프로그램 캘린더 (신청·결제 확인 후)
+- `INTENSIVE_INDIVIDUAL_PROGRAM_BOOKING_URL`: 위와 동일한 캘린더 (집중 프로그램 참여자도 사용 가능)
+- `COUPLE_SESSION_BOOKING_URL`: 1회 커플 상담 캘린더 (신청·결제 확인 후)
+- `COUPLE_PROGRAM_BOOKING_URL`: 위와 동일한 캘린더 (한 달 커플 패키지 참여자도 사용 가능)
+- `kakao`: 상담 전 간단 문의 (`lib/content.ts`의 `contactLinks.kakao`와 동일)
 
-무료 15분과 개인상담 50분은 실제 Cal.eu 예약 URL이 연결되어 있습니다. 4주 개인 프로그램과 커플상담은 현재 Google Form 신청·문의 링크로 연결됩니다. 기존 과거 응답용 Google Form은 `legacyApplicationForm`과 `legacyBookingForm`에 별도로 보존되어 있으며 신규 무료·개인상담 버튼에는 사용하지 않습니다.
+`/booking`에서 개인 상담 3종과 커플/부부 상담 2종을 구분해 보여줍니다. 추천 상품은 180€ 개인 프로그램과 360€ 커플 패키지입니다. 이전 `/booking/free` 주소는 `/booking`으로 영구 이동합니다. 과거 응답용 Google Form은 `legacyApplicationForm`과 `legacyBookingForm`에 보존하며 신규 예약 버튼에는 사용하지 않습니다.
 
-개인상담 캘린더에는 이름/닉네임, 이메일, WhatsApp 또는 카카오톡, 거주 국가, 상담 방식, 한 문장의 도움 요청, 정책·개인정보 동의를 설정하세요. 4주 개인 프로그램 폼에는 연락 정보, 국가·시간대, 다루고 싶은 문제, 4주 후 목표, 정책·개인정보 동의를 받고 가능한 요일·시간은 묻지 않습니다. 커플 폼에는 신청자·파트너 호칭, 참여 동의, 희망 언어, 국가·시간대, 상담 이유, 연락처와 동의를 설정하세요.
+개인 프로그램과 커플 상품의 Cal.eu 페이지는 신청·결제 확인을 마친 참여자의 일정 예약용입니다. 신규 신청자는 카드의 카카오톡 문의 링크로 안내합니다. 각 상품의 버튼 문구와 예약 링크는 `services`에서 관리하며 홈페이지 요금표와 예약 페이지가 함께 사용합니다. 외부 Cal.eu 설정과 문구는 코드 수정으로 변경되지 않습니다.
 
-Google Form에서는 기존 질문을 삭제하거나 순서를 바꾸지 말고 상담 상품, 진행 방식, 거주 국가와 시간대, 한두 문장의 도움 요청을 새 필수 질문으로 추가하세요. 기존 제출은 무료 15분 상담 신청으로 간주합니다.
+가격: 개인 50€ / 50분, 개인 프로그램 180€ / 50분 × 4회 (회당 45€), 집중 개인 프로그램 360€ / 50분 × 8회 (회당 45€), 커플 100€ / 70분, 커플 패키지 360€ / 70분 × 4회 (회당 90€). 정상가 대비 절약 금액은 각각 개인 프로그램 20€, 집중 개인 프로그램 40€, 커플 패키지 40€입니다.
 
 계좌정보는 공개 코드에 넣지 않습니다. 신청 뒤 비공개 안내 화면·이메일·메시지로 전달하세요. Stripe 도입 시 `lib/booking.ts`와 `/booking`의 결제 단계만 결제 세션 URL/API로 교체하면 됩니다. 원본 파일 백업은 `.backup/before-booking-redesign-2026-07-18/`에 있습니다.
 

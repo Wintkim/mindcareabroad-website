@@ -6,6 +6,7 @@ import { About } from "@/components/About";
 import { Testimonials } from "@/components/Testimonials";
 import { Booking } from "@/components/Booking";
 import { Footer } from "@/components/Footer";
+import { bookingLinks, services } from "@/lib/booking";
 
 const siteUrl = "https://www.mindcareabroad.com";
 
@@ -29,29 +30,14 @@ const jsonLd = {
       email: "mindcare.abroad@gmail.com",
       sameAs: ["https://instagram.com/mindcare.abroad"],
       knowsLanguage: ["ko", "en", "de"],
-      priceRange: "0€-360€",
-      offers: [
-        {
-          "@type": "Offer",
-          name: "무료 15분 첫 상담",
-          price: "0",
-          priceCurrency: "EUR",
-          availability: "https://schema.org/InStock",
-          url: "https://app.cal.eu/mindcareabroad/free-15",
-        },
-        {
-          "@type": "Offer",
-          name: "개인 온라인 상담 50분",
-          price: "50",
-          priceCurrency: "EUR",
-        },
-        {
-          "@type": "Offer",
-          name: "커플 상담 70분",
-          price: "100",
-          priceCurrency: "EUR",
-        },
-      ],
+      priceRange: "50€-360€",
+      offers: services.map((service) => ({
+        "@type": "Offer",
+        name: `${service.title} · ${service.duration}`,
+        price: service.price.replace("€", ""),
+        priceCurrency: "EUR",
+        url: `${siteUrl}${bookingLinks.selection}#${service.id}`,
+      })),
       serviceType: [
         "해외 한국인 상담",
         "독일 한국어 상담",

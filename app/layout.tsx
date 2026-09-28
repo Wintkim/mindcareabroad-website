@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Mono, Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/lib/LanguageContext";
 
 const notoSerif = Noto_Serif_KR({
@@ -27,7 +28,7 @@ const dmMono = DM_Mono({
 const siteUrl = "https://www.mindcareabroad.com";
 const siteName = "Mindcare Abroad";
 const description =
-  "독일·유럽·해외에 사는 한국인을 위한 한국어 온라인 마음상담. 외로움, 관계 갈등, 이민 스트레스, 정체성 혼란, 국제커플 소통을 다룹니다. 무료 15분 첫 상담 가능.";
+  "독일·유럽·해외에 사는 한국인을 위한 한국어 온라인 정서·관계 상담. 외로움, 관계 갈등, 이민 스트레스, 정체성 혼란, 국제커플 소통을 다룹니다. 1:1 상담과 개인·커플 프로그램에서 필요한 지원을 선택하세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -56,10 +57,9 @@ export const metadata: Metadata = {
     "국제커플 상담",
     "나르시시스트 관계 상담",
     "정체성 혼란 상담",
-    "무료 15분 상담",
+    "50분 온라인 상담",
     "Korean counseling Germany",
     "Korean counseling Europe",
-    "Korean therapist Germany",
     "Korean emotional support abroad",
   ],
   authors: [{ name: siteName }],
@@ -135,6 +135,7 @@ export default function RootLayout({
         }}
       >
         <LanguageProvider>{children}</LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );

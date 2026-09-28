@@ -3,8 +3,8 @@
 import { useLang } from "@/lib/LanguageContext";
 import { content } from "@/lib/content";
 import { AuroraBackground } from "@/components/ui/aurora-background";
-import Link from "next/link";
 import { bookingLinks } from "@/lib/booking";
+import Link from "next/link";
 
 export function Hero() {
   const { lang } = useLang();
@@ -186,7 +186,7 @@ export function Hero() {
           </h1>
 
           <p
-            className="text-lg md:text-xl mb-10 leading-relaxed"
+            className="text-lg md:text-xl mb-10 leading-relaxed whitespace-pre-line"
             style={{
               color: "var(--text-sec)",
               fontFamily: "var(--font-noto-sans)",
@@ -196,10 +196,8 @@ export function Hero() {
           </p>
 
           <div className="grid sm:grid-cols-2 gap-3">
-            <a
-              href={bookingLinks.FREE_CONSULTATION_BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={bookingLinks.selection}
               className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-85"
               style={{
                 backgroundColor: "var(--cta)",
@@ -208,9 +206,11 @@ export function Hero() {
               }}
             >
               {t.cta[lang]}
-            </a>
-            <Link
-              href="/booking"
+            </Link>
+            <a
+              href={bookingLinks.kakao}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-7 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-80"
               style={{
                 backgroundColor: "transparent",
@@ -219,22 +219,57 @@ export function Hero() {
                 fontFamily: "var(--font-noto-sans)",
               }}
             >
-              {lang === "ko" ? "유료상담 바로 예약하기" : "Book a paid session"}
-            </Link>
+              {t.ctaSecondary[lang]}
+            </a>
           </div>
-          <p className="mt-4 text-sm" style={{ color: "var(--text-sec)" }}>{lang === "ko" ? "무료상담은 원하는 시간을 선택하면 별도 결제 없이 예약이 확정됩니다." : "Choose a time for the free consultation and it is confirmed without payment."}</p>
-          <a
-            href={bookingLinks.kakao}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex items-center gap-2 mt-5 min-h-11 px-5 py-2.5 rounded-full text-sm font-medium border transition-colors hover:bg-white/30"
-            style={{ color: "var(--cta)", borderColor: "var(--cta)" }}
+          <ul
+            className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm"
+            style={{ color: "var(--text-sec)", fontFamily: "var(--font-noto-sans)" }}
           >
-            <span aria-hidden="true">💬</span>
-            {lang === "ko" ? "예약 전 궁금한 점, 카카오톡으로 문의하기" : "Questions before booking? Ask on KakaoTalk"}
-          </a>
+            {t.meta.map((item) => (
+              <li key={item.icon} className="inline-flex items-center gap-2">
+                <MetaIcon name={item.icon} />
+                {item[lang]}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </AuroraBackground>
+  );
+}
+
+function MetaIcon({ name }: { name: string }) {
+  const paths: Record<string, React.ReactNode> = {
+    globe: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+      </>
+    ),
+    chat: <path d="M4 5h16v11H9l-5 4z" />,
+    people: (
+      <>
+        <circle cx="9" cy="8" r="3" />
+        <circle cx="17" cy="9" r="2.5" />
+        <path d="M3 19c0-3.3 2.7-5 6-5s6 1.7 6 5M15 14.5c3 0 6 1.3 6 4.5" />
+      </>
+    ),
+  };
+  return (
+    <svg
+      aria-hidden="true"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="var(--cta)"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="shrink-0"
+    >
+      {paths[name]}
+    </svg>
   );
 }

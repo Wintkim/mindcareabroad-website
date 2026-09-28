@@ -1,5 +1,10 @@
 export type Lang = "ko" | "en";
 
+export const ctaLabels = {
+  book: { ko: "상담 예약하기", en: "Book a session" },
+  inquire: { ko: "상담 전 간단 문의", en: "Ask before booking" },
+};
+
 export const contactLinks = {
   kakao: "https://open.kakao.com/o/sqXbS7xi",
   legacyBookingForm: "https://forms.gle/9bVLEtrsjJjk52U36",
@@ -11,29 +16,28 @@ export const content = {
   nav: {
     logo: "Mindcare Abroad",
     lang: { ko: "EN", en: "KO" },
-    cta: { ko: "무료 15분 상담", en: "Free 15-min consult" },
+    cta: ctaLabels.book,
   },
   hero: {
     eyebrow: {
-      ko: "독일·유럽·해외 거주 한국인을 위한 한국어 마음상담",
-      en: "Korean counseling support for life abroad",
+      ko: "해외 거주 한국인을 위한 정서·관계 상담",
+      en: "Emotional and relationship support for Koreans abroad",
     },
     headline: {
       ko: "낯선 나라에서\n혼자 버티는 마음에게",
       en: "For the heart holding on alone abroad",
     },
     sub: {
-      ko: "해외 생활의 외로움, 관계 갈등, 이민 스트레스, 정체성 혼란을 한국어로 편하게 꺼내놓을 수 있는 온라인 상담입니다. 독일 함부르크 대면 상담도 가능합니다.",
-      en: "Online emotional support in Korean for loneliness, relationship stress, migration anxiety, and identity confusion.",
+      ko: "해외 생활의 외로움, 관계 갈등, 이민 스트레스, 정체성 혼란을\n한국어로 편안하게 이야기하고 함께 정리합니다.",
+      en: "Talk comfortably in Korean about loneliness, relationship conflict, migration stress, and identity confusion as we work through them together.",
     },
-    cta: {
-      ko: "무료 15분 상담 신청",
-      en: "Book a free 15-min consult",
-    },
-    ctaSecondary: {
-      ko: "카카오톡으로 바로 문의",
-      en: "Message on KakaoTalk",
-    },
+    cta: ctaLabels.book,
+    ctaSecondary: ctaLabels.inquire,
+    meta: [
+      { icon: "globe", ko: "전 세계 온라인", en: "Online, worldwide" },
+      { icon: "chat", ko: "한국어 상담", en: "Counseling in Korean" },
+      { icon: "people", ko: "영어·독일어 파트너 소통 지원", en: "English & German partner support" },
+    ],
   },
   forYou: {
     eyebrow: { ko: "이런 분께 맞습니다", en: "Who this is for" },
@@ -152,12 +156,16 @@ export const content = {
       label: { ko: "처음 오시는 분을 위해", en: "For your first step" },
       points: [
         {
-          ko: "첫 15분 상담은 무료입니다. 잘 맞는지 부담 없이 확인할 수 있어요.",
-          en: "The first 15-minute consultation is free, so you can see if it feels right.",
+          ko: "상담 전 간단한 문의는 언제든 가능합니다.",
+          en: "You are welcome to ask a simple question before booking.",
         },
         {
-          ko: "이름을 밝히지 않고 한 문장으로 시작해도 괜찮습니다.",
-          en: "You can begin with one sentence, even without sharing your full name.",
+          ko: "정식 상담은 예약 후 일정과 진행 방법을 안내드립니다.",
+          en: "After booking, we will send you the schedule and details of how your session will work.",
+        },
+        {
+          ko: "현재 상황이 정리되지 않아도 괜찮습니다. 이야기하면서 함께 정리합니다.",
+          en: "You do not need to have everything figured out. We will work through it together as we talk.",
         },
         {
           ko: "임상 심리치료나 정신과 치료가 아닌 마음케어·상담 지원 서비스입니다.",
@@ -180,63 +188,69 @@ export const content = {
       couplesLabel: { ko: "커플/부부 상담", en: "Couples sessions" },
       personal: [
         {
-          title: { ko: "개인상담 1회", en: "Individual session" },
+          id: "individual-session",
+          title: { ko: "1:1 온라인 상담", en: "1:1 online session" },
           desc: {
-            ko: "50분 · 현재 가장 필요한 문제를 차분히 정리합니다.",
-            en: "50 min · focus on what needs attention now",
+            ko: "50분 · 지금 가장 필요한 문제부터 한 번 차분히 이야기해보고 싶은 분께",
+            en: "50 min · for a calm conversation about what matters most right now",
           },
           price: { ko: "50€", en: "€50" },
           subPrice: { ko: "Cal.eu에서 바로 예약", en: "Book directly on Cal.eu" },
           badge: null,
+          featured: false,
         },
         {
+          id: "individual-program",
           title: { ko: "4주 개인 프로그램", en: "4-week individual program" },
           desc: {
-            ko: "50분 × 4회 · 반복되는 고민과 패턴을 꾸준히 점검합니다.",
-            en: "50 min × 4 · steady support for recurring patterns",
+            ko: "50분 × 4회 · 한 번의 대화보다, 4주 동안 꾸준히 정리하고 싶은 분께",
+            en: "50 min × 4 · for those who want more than one conversation — four weeks of steady work",
           },
           price: { ko: "180€", en: "€180" },
-          subPrice: { ko: "기본 추천 상품", en: "Core recommendation" },
-          badge: { ko: "가장 추천", en: "Recommended" },
+          subPrice: { ko: "50분 × 4회 · 회당 45€", en: "50 min × 4 · €45/session" },
+          badge: { ko: "추천", en: "Recommended" },
+          featured: true,
         },
         {
+          id: "intensive-individual-program",
           title: { ko: "4주 집중 개인 프로그램", en: "4-week intensive program" },
           desc: {
-            ko: "50분 × 8회 · 주 2회, 더 촘촘한 점검이 필요한 시기에",
-            en: "50 min × 8 · twice-weekly focused support",
+            ko: "50분 × 8회 · 짧은 기간 동안 주 2회로 집중적인 점검이 필요한 분께",
+            en: "50 min × 8 · for focused support twice a week over a short period",
           },
           price: { ko: "360€", en: "€360" },
-          subPrice: { ko: "상담 후 추천", en: "Recommended after consultation" },
+          subPrice: { ko: "50분 × 8회 · 회당 45€", en: "50 min × 8 · €45/session" },
           badge: { ko: "집중 지원", en: "Focused" },
+          featured: false,
         },
       ],
       couples: [
         {
-          title: { ko: "한 달 커플 패키지", en: "Monthly couple package" },
-          desc: {
-            ko: "주 1회 x 4주 · 관계를 다시 연결해요",
-            en: "1x week x 4 weeks · reconnect your relationship",
-          },
-          price: { ko: "360€", en: "€360" },
-          subPrice: { ko: "회당 70€", en: "€70/session" },
-          badge: { ko: "추천", en: "Recommended" },
-        },
-        {
+          id: "couple-session",
           title: { ko: "1회 커플 상담", en: "Single couple session" },
           desc: {
-            ko: "50분 · 두 사람의 마음을 함께 풀어가요",
-            en: "50 min · explore both sides together",
+            ko: "70분 · 두 사람의 감정과 갈등을 한 번 차분히 정리해보고 싶은 커플에게",
+            en: "70 min · for couples who want a calm conversation about their feelings and conflicts",
           },
           price: { ko: "100€", en: "€100" },
           subPrice: null,
           badge: null,
+          featured: false,
+        },
+        {
+          id: "couple-program",
+          title: { ko: "한 달 커플 패키지", en: "Monthly couple package" },
+          desc: {
+            ko: "70분 × 4회 · 반복되는 갈등을 한 번의 대화로 끝내지 않고, 4주 동안 함께 정리합니다.",
+            en: "70 min × 4 · instead of ending recurring conflict with a single conversation, we work through it together over four weeks.",
+          },
+          price: { ko: "360€", en: "€360" },
+          subPrice: { ko: "70분 × 4회 · 회당 90€", en: "70 min × 4 · €90/session" },
+          badge: { ko: "커플 추천", en: "For couples" },
+          featured: true,
         },
       ],
       notes: [
-        {
-          ko: "* 현재 소수 인원만 받고 있어 응답 후 가능한 시간을 함께 조율합니다.",
-          en: "* Only a small number of clients are accepted at this time.",
-        },
         {
           ko: "* 영어·독일어 파트너 소통 지원 가능합니다.",
           en: "* English and German partner communication is available.",
@@ -281,23 +295,35 @@ export const content = {
   booking: {
     eyebrow: { ko: "예약 · 문의", en: "Book & Contact" },
     heading: {
-      ko: "무료 15분 상담으로 먼저 만나보세요",
-      en: "Start with a free 15-minute consultation",
+      ko: "혼자 정리하기 어려운 마음이라면,\n여기서부터 이야기해보세요.",
+      en: "When it feels hard to work through things alone,\nstart the conversation here.",
     },
     note: {
-      ko: "유럽 전역 온라인 상담 · 함부르크 대면 상담 가능",
-      en: "Online across Europe · in-person in Hamburg",
+      ko: "온라인 1:1 · 관계/정서 · 커플 상담",
+      en: "Online 1:1 · emotional/relationship support · couples sessions",
     },
     intro: {
-      ko: "지금 바로 연결하고 싶다면 카카오톡으로, 천천히 정리해서 보내고 싶다면 예약폼으로 문의해 주세요. 한 문장만 보내도 괜찮습니다.",
-      en: "Use KakaoTalk if you want to connect right away, or the form if you prefer to write slowly. One sentence is enough to begin.",
+      ko: "관계, 외로움, 자존감, 해외생활의 복잡한 마음을\n한국어로 천천히 정리합니다.",
+      en: "Take your time to work through relationships, loneliness, self-worth, and the complex feelings of life abroad in Korean.",
     },
-    bookBtn: { ko: "무료 15분 상담 신청", en: "Book free consultation" },
-    kakaoBtn: { ko: "카카오톡으로 문의", en: "Message on KakaoTalk" },
-    responseLabel: { ko: "응답 시간", en: "Response time" },
-    responseText: {
-      ko: "보통 2시간 이내에 답장 드립니다.",
-      en: "Usually responds within 2 hours.",
+    bookBtn: ctaLabels.book,
+    kakaoBtn: ctaLabels.inquire,
+    bookingHint: {
+      ko: "나에게 맞는 상담을 선택한 뒤 예약이나 문의를 이어가세요.",
+      en: "Choose the support that fits you, then continue to booking or an inquiry.",
+    },
+    sessionBookingHint: {
+      ko: "원하는 시간을 먼저 예약해 주세요.",
+      en: "Choose a time that works for you.",
+    },
+    programScheduleHint: {
+      ko: "첫 회기 예약 후 나머지 일정은 함께 조율합니다.",
+      en: "After you book the first session, we arrange the rest together.",
+    },
+    stepsLabel: { ko: "4주 동안 이렇게 진행돼요", en: "How the four weeks unfold" },
+    inquiryHint: {
+      ko: "카카오톡으로 편하게 문의해 주세요. 한 문장만 보내도 괜찮습니다.",
+      en: "Send a question on KakaoTalk. One sentence is enough to begin.",
     },
   },
   footer: {
