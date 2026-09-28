@@ -2,8 +2,6 @@ import { contactLinks } from "./content";
 
 // Clients book the first session on Cal first; bank-transfer details are sent personally afterward.
 // Packages are paid in full upfront; remaining sessions are scheduled after the first one.
-// TODO: the couple session and couple package still share one Cal event — split it once a
-// dedicated couple-package event exists.
 const individualProgramBookingUrl =
   "https://www.cal.eu/mindcareabroad/4%E1%84%8C%E1%85%AE-private-%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%85%E1%85%A2%E1%86%B7-50%E1%84%87%E1%85%AE%E1%86%AB";
 const intensiveProgramBookingUrl =
@@ -20,10 +18,10 @@ export const bookingLinks = {
   INDIVIDUAL_PROGRAM_BOOKING_URL: individualProgramBookingUrl,
   // 3. Individual intensive program (dedicated event)
   INTENSIVE_INDIVIDUAL_PROGRAM_BOOKING_URL: intensiveProgramBookingUrl,
-  // 4. Couple single session (shared couple event)
+  // 4. Couple single session (dedicated event)
   COUPLE_SESSION_BOOKING_URL: coupleBookingUrl,
-  // 5. Couple 4-week package (TODO: dedicated event URL)
-  COUPLE_PROGRAM_BOOKING_URL: coupleBookingUrl,
+  // 5. Couple 4-week package (dedicated event)
+  COUPLE_PROGRAM_BOOKING_URL: "https://app.cal.eu/mindcareabroad/couple-package-70",
   // Archive only: never use this legacy form for new product buttons.
   legacyApplicationForm: "https://forms.gle/9bVLEtrsjJjk52U36",
   kakao: contactLinks.kakao,
